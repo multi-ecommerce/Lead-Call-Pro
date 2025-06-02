@@ -1,24 +1,52 @@
+"use client";
+
 import Link from "next/link";
+import { useState } from "react";
+import { useRouter } from "next/navigation";
+
+import { Menu } from "lucide-react";
+
 import MaxWidthWrapper from "./MaxWidthWrapper";
 import { buttonVariants } from "./ui/button";
+import MobileNavbar from "./MobileNavbar";
 
 export const Navbar = () => {
+  const [navbar, setNavbar] = useState(false);
+  const router = useRouter();
   const user = null;
+
+  function toggleNavbar() {
+    setNavbar(!navbar);
+  }
+
   return (
     <div className="bg-white sticky z-50 top-0 inset-x-0 h-16">
       <header className="relative bg-white">
         <MaxWidthWrapper>
           <div className="border-b border-gray-200">
             <div className="flex h-16 items-center">
-              {/* <MobileNav /> */}
-
               <div className="ml-4 flex lg:ml-0">
                 <Link href="/">
                   <p className="font-bold">LOGO</p>
-
-                  {/* <Icons.logo className="h-10 w-10" /> */}
                 </Link>
               </div>
+
+              {/* ### MOBILE NAVBAR ### */}
+              <div className="lg:hidden p-1 rounded-md flex flex-1 items-center justify-end">
+                <button onClick={toggleNavbar}>
+                  <Menu size={24} color="black" />
+                </button>
+              </div>
+
+              {navbar && (
+                <div className="bg-[#f1f5f9]">
+                  <MobileNavbar />
+                </div>
+              )}
+
+              {/* ### MOBILE NAVBAR END ### */}
+
+              {/* ### DESKTOP NAVBAR ### */}
 
               <div className="hidden md:ml-20 lg:flex">
                 <div className="text-[0.94rem] [&_ul:hover]:text-blue-600 [&_ul]:opacity-60 grow flex justify-center gap-7">
@@ -56,13 +84,15 @@ export const Navbar = () => {
                       href="/sign-up"
                       className={`${buttonVariants({
                         variant: "ghost",
-                      })}, hover:bg-blue-600 hover:text-white`}
+                      })}, border-2 border-blue-600 hover:bg-blue-600 hover:text-white`}
                     >
-                      Create account
+                      Try ResultCalls
                     </Link>
                   )}
                 </div>
               </div>
+
+              {/* ### DESKTOP NAVBAR END ### */}
             </div>
           </div>
         </MaxWidthWrapper>
