@@ -15,6 +15,10 @@ primary_region = 'sin'
   auto_start_machines = true
   min_machines_running = 0
   processes = ['app']
+  [[http_service.domains]]
+    primary = "leadcallpro.com"  # e.g., leadcallpro.com
+  [[http_service.domains]]
+    primary = "www.leadcallpro.com"
 
 [[vm]]
   memory = '1gb'
