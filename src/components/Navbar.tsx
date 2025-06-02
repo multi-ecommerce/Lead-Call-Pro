@@ -87,7 +87,7 @@ export const Navbar = () => {
                         variant: "ghost",
                       })}, border-2 border-blue-600 hover:bg-blue-600 hover:text-white`}
                     >
-                      Try ResultCalls
+                      Try Lead Call Pro
                     </Link>
                   )}
                 </div>
