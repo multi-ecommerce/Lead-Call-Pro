@@ -5,6 +5,7 @@ import { useState } from "react";
 import { useRouter } from "next/navigation";
 
 import { Menu } from "lucide-react";
+import { X } from "lucide-react";
 
 import MaxWidthWrapper from "./MaxWidthWrapper";
 import { buttonVariants } from "./ui/button";
@@ -34,7 +35,7 @@ export const Navbar = () => {
               {/* ### MOBILE NAVBAR ### */}
               <div className="lg:hidden p-1 rounded-md flex flex-1 items-center justify-end">
                 <button onClick={toggleNavbar}>
-                  <Menu size={24} color="black" />
+                  {navbar ? <X color="blue" /> : <Menu color="blue" />}
                 </button>
               </div>
 
