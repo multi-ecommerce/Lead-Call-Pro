@@ -28,7 +28,7 @@ export const Navbar = () => {
             <div className="flex h-16 items-center">
               <div className="ml-4 flex lg:ml-0">
                 <Link href="/">
-                  <p className="font-bold">LOGO</p>
+                  <p className="text-xl font-bold">Lead Call</p>
                 </Link>
               </div>
 

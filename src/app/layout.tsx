@@ -13,7 +13,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Multi-Ecommerce",
+  title: "Lead Call Pro",
   description: "Marketplace for high-quality digital assets",
 };
 
