@@ -44,7 +44,7 @@ export default function MobileNavbar() {
             href="/sign-up"
             className={`${buttonVariants({
               variant: "ghost",
-            })}, border-2 border-blue-600 hover:bg-blue-600 hover:text-white`}
+            })}, border rounded-sm border-blue-600 hover:bg-blue-600 hover:text-white`}
           >
             Try Lead Call Pro
           </Link>

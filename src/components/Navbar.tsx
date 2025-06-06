@@ -28,7 +28,7 @@ export const Navbar = () => {
             <div className="flex h-16 items-center">
               <div className="ml-4 flex lg:ml-0">
                 <Link href="/">
-                  <p className="text-xl font-bold">Lead Call</p>
+                  <p className="text-xl font-bold font-sans">Lead Call Pro</p>
                 </Link>
               </div>
 
@@ -85,7 +85,7 @@ export const Navbar = () => {
                       href="/sign-up"
                       className={`${buttonVariants({
                         variant: "ghost",
-                      })}, border-2 border-blue-600 hover:bg-blue-600 hover:text-white`}
+                      })}, border border-blue-600 rounded-sm hover:bg-blue-600 hover:text-white`}
                     >
                       Try Lead Call Pro
                     </Link>
