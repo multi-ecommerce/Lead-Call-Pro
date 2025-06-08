@@ -21,7 +21,9 @@ export default function NavProfile({ session }: { session: Session | null }) {
     <div className="relative inline-block">
       <button
         onClick={toggleNavbar}
-        className="hover:bg-gray-100 rounded-full lg:p-2 p-[0.2rem] border cursor-pointer"
+        className={`${
+          isOpen ? "bg-gray-100" : ""
+        } hover:bg-gray-100 rounded-full lg:p-2 p-[0.2rem] border cursor-pointer`}
       >
         <User size={16} />
       </button>
