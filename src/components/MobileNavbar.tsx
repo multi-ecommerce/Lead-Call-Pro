@@ -3,8 +3,9 @@ import Link from "next/link";
 import { useEffect, useState } from "react";
 
 import { buttonVariants } from "./ui/button";
+import { Session } from "@supabase/supabase-js";
 
-export default function MobileNavbar() {
+export default function MobileNavbar({ session }: { session: Session | null }) {
   const [animateIn, setAnimateIn] = useState(false);
 
   useEffect(() => {
@@ -16,7 +17,7 @@ export default function MobileNavbar() {
   return (
     <div
       className={`
-        fixed top-[4.2rem] left-1/2 -translate-x-1/2 w-[90%] bg-white z-50 shadow-md 
+        fixed top-[4.2rem] left-1/2 -translate-x-1/2 w-[90%] bg-white z-40 shadow-md 
         transform transition-transform duration-300 ease-in-out overflow-auto
         ${animateIn ? "translate-y-0" : "-translate-y-full"}
       `}
@@ -31,23 +32,38 @@ export default function MobileNavbar() {
           </ul>
         </div>
         <div className="flex items-center justify-center pt-3 gap-4">
-          <Link
-            href="/sign-in"
-            className={buttonVariants({
-              variant: "ghost",
-            })}
-          >
-            Sign in
-          </Link>
-          <span className="h-6 w-px bg-gray-200 " aria-hidden="true" />
-          <Link
-            href="/sign-up"
-            className={`${buttonVariants({
-              variant: "ghost",
-            })}, border rounded-sm border-blue-600 hover:bg-blue-600 hover:text-white`}
-          >
-            Try Lead Call Pro
-          </Link>
+          {session ? null : (
+            <Link
+              href="/sign-in"
+              className={buttonVariants({
+                variant: "ghost",
+              })}
+            >
+              Sign in
+            </Link>
+          )}
+          {session ? null : (
+            <span className="h-6 w-px bg-gray-200 " aria-hidden="true" />
+          )}
+          {!session ? (
+            <Link
+              href="/sign-up"
+              className={`${buttonVariants({
+                variant: "ghost",
+              })}, border rounded-sm border-blue-600 hover:bg-blue-600 hover:text-white`}
+            >
+              Try Lead Call Pro
+            </Link>
+          ) : (
+            <Link
+              href="/dashboard"
+              className={`${buttonVariants({
+                variant: "ghost",
+              })}, border rounded-sm border-blue-600 hover:bg-blue-600 hover:text-white`}
+            >
+              Dashboard
+            </Link>
+          )}
         </div>
       </div>
     </div>

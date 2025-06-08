@@ -18,7 +18,6 @@ export const Navbar = () => {
   const [navbar, setNavbar] = useState(false);
   const [session, setSession] = useState<Session | null>(null);
   const router = useRouter();
-  // const user = null;
 
   function toggleNavbar() {
     setNavbar(!navbar);
@@ -31,10 +30,20 @@ export const Navbar = () => {
 
   useEffect(() => {
     fetchSession();
+
+    const { data: listener } = supabase.auth.onAuthStateChange(
+      (_event, session) => {
+        setSession(session);
+      }
+    );
+
+    return () => {
+      listener?.subscription.unsubscribe();
+    };
   }, []);
 
   return (
-    <div className="bg-white sticky z-50 top-0 inset-x-0 h-16">
+    <div className="bg-white sticky z-10 top-0 inset-x-0 h-16">
       <header className="relative bg-white">
         <MaxWidthWrapper>
           <div className="border-b border-gray-200">
@@ -47,7 +56,7 @@ export const Navbar = () => {
 
               {/* ### MOBILE NAVBAR ### */}
               <div className="lg:hidden p-1 rounded-md flex flex-1 items-center justify-end space-x-6">
-                {session ? <NavProfile /> : null}
+                {session ? <NavProfile session={session} /> : null}
 
                 <button onClick={toggleNavbar}>
                   {navbar ? <X color="blue" /> : <Menu color="blue" />}
@@ -56,7 +65,7 @@ export const Navbar = () => {
 
               {navbar && (
                 <div className="bg-[#f1f5f9]">
-                  <MobileNavbar />
+                  <MobileNavbar session={session} />
                 </div>
               )}
 
@@ -101,7 +110,7 @@ export const Navbar = () => {
                     {session ? "Dashboard" : "Try Lead Call Pro"}
                   </Link>
 
-                  {session ? <NavProfile /> : null}
+                  {session ? <NavProfile session={session} /> : null}
                 </div>
               </div>
 
