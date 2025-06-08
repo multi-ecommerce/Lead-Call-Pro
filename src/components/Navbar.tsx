@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 
 import { Menu } from "lucide-react";
@@ -10,15 +10,28 @@ import { X } from "lucide-react";
 import MaxWidthWrapper from "./MaxWidthWrapper";
 import { buttonVariants } from "./ui/button";
 import MobileNavbar from "./MobileNavbar";
+import { supabase } from "@/lib/supabaseClient";
+import { Session } from "@supabase/supabase-js";
+import NavProfile from "./NavProfile";
 
 export const Navbar = () => {
   const [navbar, setNavbar] = useState(false);
+  const [session, setSession] = useState<Session | null>(null);
   const router = useRouter();
-  const user = null;
+  // const user = null;
 
   function toggleNavbar() {
     setNavbar(!navbar);
   }
+
+  const fetchSession = async () => {
+    const currentSession = await supabase.auth.getSession();
+    setSession(currentSession.data.session);
+  };
+
+  useEffect(() => {
+    fetchSession();
+  }, []);
 
   return (
     <div className="bg-white sticky z-50 top-0 inset-x-0 h-16">
@@ -33,7 +46,9 @@ export const Navbar = () => {
               </div>
 
               {/* ### MOBILE NAVBAR ### */}
-              <div className="lg:hidden p-1 rounded-md flex flex-1 items-center justify-end">
+              <div className="lg:hidden p-1 rounded-md flex flex-1 items-center justify-end space-x-6">
+                {session ? <NavProfile /> : null}
+
                 <button onClick={toggleNavbar}>
                   {navbar ? <X color="blue" /> : <Menu color="blue" />}
                 </button>
@@ -62,7 +77,7 @@ export const Navbar = () => {
 
               <div className="ml-auto flex items-center">
                 <div className="hidden lg:flex lg:flex-1 lg:items-center lg:justify-end lg:space-x-6">
-                  {user ? null : (
+                  {session ? null : (
                     <Link
                       href="/sign-in"
                       className={buttonVariants({
@@ -73,23 +88,20 @@ export const Navbar = () => {
                     </Link>
                   )}
 
-                  {user ? null : (
+                  {session ? null : (
                     <span className="h-6 w-px bg-gray-200" aria-hidden="true" />
                   )}
 
-                  {user ? (
-                    // <UserAccountNav user={user} />
-                    <p></p>
-                  ) : (
-                    <Link
-                      href="/sign-up"
-                      className={`${buttonVariants({
-                        variant: "ghost",
-                      })}, border border-blue-600 rounded-sm hover:bg-blue-600 hover:text-white`}
-                    >
-                      Try Lead Call Pro
-                    </Link>
-                  )}
+                  <Link
+                    href="/sign-up"
+                    className={`${buttonVariants({
+                      variant: "ghost",
+                    })}, border border-blue-600 rounded-sm hover:bg-blue-600 hover:text-white`}
+                  >
+                    {session ? "Dashboard" : "Try Lead Call Pro"}
+                  </Link>
+
+                  {session ? <NavProfile /> : null}
                 </div>
               </div>
 

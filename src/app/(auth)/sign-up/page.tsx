@@ -34,39 +34,65 @@ export default function SignUp() {
     category !== "";
 
   // const handleSignup = async () => {
-  //   // Create the user
   //   setLoading(true);
-  //   const { data: authData, error: authError } = await supabase.auth.signUp({
-  //     email,
-  //     password,
-  //   });
+  //   setError("");
 
-  //   if (authError) {
-  //     console.error("Signup error:", authError);
-  //     setError(authError.message);
+  //   const { data: signupData, error: signupError } = await supabase.auth.signUp(
+  //     {
+  //       email,
+  //       password,
+  //     }
+  //   );
+
+  //   if (signupError) {
+  //     if (signupError.message.toLowerCase().includes("already registered")) {
+  //       setError("User already exists — please try another email.");
+  //     } else {
+  //       setError(signupError.message);
+  //     }
+  //     setLoading(false);
   //     return;
   //   }
 
-  //   // Insert profile data
-  //   const user = authData.user;
-  //   if (user) {
-  //     const { error: dbError } = await supabase.from("users").insert([
-  //       {
-  //         id: user.id,
-  //         email,
-  //         phone,
-  //         category,
-  //       },
-  //     ]);
+  //   alert("Please verify your email in 30 sec. Waiting for verification...");
 
-  //     if (dbError) {
-  //       console.error("DB insert error:", dbError); // replace this with:
-  //       console.dir(dbError, { depth: null });
-  //       setError(dbError.message);
-  //     }
+  //   const maxAttempts = 5; // Total wait time = 5 * 2s = 10 seconds
+  //   let attempt = 0;
+  //   let sessionUser = null;
+
+  //   while (attempt < maxAttempts) {
+  //     const { data: sessionData } = await supabase.auth.getSession();
+  //     sessionUser = sessionData?.session?.user;
+
+  //     if (sessionUser) break;
+
+  //     await new Promise((resolve) => setTimeout(resolve, 6000)); // Wait 2 seconds
+  //     attempt++;
   //   }
 
-  //   router.push("/sign-in");
+  //   if (!sessionUser) {
+  //     setError("Email not verified yet. Please try logging in later.");
+  //     setLoading(false);
+  //     return;
+  //   }
+
+  //   // Insert extra user data into your custom "users" table
+  //   const { error: insertError } = await supabase.from("users").insert([
+  //     {
+  //       id: sessionUser.id,
+  //       email: sessionUser.email,
+  //       phone,
+  //       category,
+  //     },
+  //   ]);
+
+  //   if (insertError) {
+  //     console.error("Insert error:", insertError);
+  //     setError(insertError.message);
+  //   } else {
+  //     router.push("/dashboard");
+  //   }
+
   //   setLoading(false);
   // };
 
@@ -74,56 +100,38 @@ export default function SignUp() {
     setLoading(true);
     setError("");
 
-    const { data: signupData, error: signupError } = await supabase.auth.signUp(
-      {
-        email,
-        password,
-      }
-    );
+    const { data, error: signUpError } = await supabase.auth.signUp({
+      email,
+      password,
+    });
 
-    if (signupError) {
-      setError(signupError.message);
+    if (signUpError) {
+      setError(signUpError.message);
       setLoading(false);
       return;
     }
 
-    alert("Please verify your email. Waiting for verification...");
+    const user = data.user;
 
-    const maxAttempts = 5; // Total wait time = 5 * 2s = 10 seconds
-    let attempt = 0;
-    let sessionUser = null;
-
-    while (attempt < maxAttempts) {
-      const { data: sessionData } = await supabase.auth.getSession();
-      sessionUser = sessionData?.session?.user;
-
-      if (sessionUser) break;
-
-      await new Promise((resolve) => setTimeout(resolve, 2000)); // Wait 2 seconds
-      attempt++;
-    }
-
-    if (!sessionUser) {
-      setError("Email not verified yet. Please try logging in later.");
-      setLoading(false);
-      return;
-    }
-
-    // Insert extra user data into your custom "users" table
-    const { error: insertError } = await supabase.from("users").insert([
-      {
-        id: sessionUser.id,
-        email,
+    // Insert extra user info if signup is successful
+    if (user) {
+      const { error: insertError } = await supabase.from("users").insert({
+        id: user.id, // or use user.email if you want email as unique
+        email: user.email,
         phone,
         category,
-      },
-    ]);
+      });
 
-    if (insertError) {
-      console.error("Insert error:", insertError);
-      setError(insertError.message);
-    } else {
-      router.push("/dashboard");
+      if (insertError) {
+        if (insertError.message.includes("users_email_key")) {
+          setError("User already exists. Try another email.");
+        } else {
+          setError(insertError.message);
+        }
+      } else {
+        console.log("Signup successful!");
+        router.push("/sign-in");
+      }
     }
 
     setLoading(false);
@@ -146,7 +154,7 @@ export default function SignUp() {
             href="/sign-in"
           >
             Already have an account?{" "}
-            <span className="text-blue-400 font-medium">Sign-in</span>
+            <span className="text-blue-400 font-medium">Sign-I n</span>
             <ArrowRight className="h-4 w-4" />
           </Link>
         </div>
@@ -199,7 +207,11 @@ export default function SignUp() {
 
             <div className="grid gap-1 py-2">
               <Label htmlFor="password">Category</Label>
-              <Select onValueChange={(value) => setCategory(value)} required>
+              <Select
+                value={category}
+                onValueChange={(value) => setCategory(value)}
+                required
+              >
                 <SelectTrigger className="w-full">
                   <SelectValue placeholder="Select Category" />
                 </SelectTrigger>
