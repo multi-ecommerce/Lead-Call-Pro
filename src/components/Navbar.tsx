@@ -43,8 +43,8 @@ export const Navbar = () => {
   }, []);
 
   return (
-    <div className="bg-white sticky z-10 top-0 inset-x-0 h-16">
-      <header className="relative bg-white">
+    <div className="sticky z-10 top-0 inset-x-0 h-16 bg-[rgba(255,255,255,0.9)] backdrop-blur-sm">
+      <header className="relative">
         <div className="border-b border-gray-200">
           <MaxWidthWrapper>
             <div className="flex h-16 items-center">

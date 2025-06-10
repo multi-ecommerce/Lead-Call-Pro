@@ -1,8 +1,11 @@
 "use client";
+import { useState } from "react";
+
+import { Menu } from "lucide-react";
+
+import DashboardProfile from "@/components/DashboardProfile";
 import DashboardSideNav from "@/components/DashboardSideNav";
 import { cn } from "@/lib/utils";
-import { ArrowDown, Menu } from "lucide-react";
-import { useState } from "react";
 
 export default function DashboardLayout({
   children,
@@ -37,9 +40,8 @@ export default function DashboardLayout({
           <div className="text-lg font-bold font-sans text-blue-600">
             Lead Call Pro
           </div>
-          <div>
-            <ArrowDown size={18} />
-          </div>
+
+          <DashboardProfile />
         </div>
 
         <div className="flex-1 overflow-auto p-4">{children}</div>
