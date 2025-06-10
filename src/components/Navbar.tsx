@@ -45,8 +45,8 @@ export const Navbar = () => {
   return (
     <div className="bg-white sticky z-10 top-0 inset-x-0 h-16">
       <header className="relative bg-white">
-        <MaxWidthWrapper>
-          <div className="border-b border-gray-200">
+        <div className="border-b border-gray-200">
+          <MaxWidthWrapper>
             <div className="flex h-16 items-center">
               <div className="ml-4 flex lg:ml-0">
                 <Link href="/">
@@ -102,7 +102,7 @@ export const Navbar = () => {
                   )}
 
                   <Link
-                    href="/sign-up"
+                    href={session ? "/dashboard" : "/sign-up"}
                     className={`${buttonVariants({
                       variant: "ghost",
                     })}, border border-blue-600 rounded-sm hover:bg-blue-600 hover:text-white`}
@@ -116,8 +116,8 @@ export const Navbar = () => {
 
               {/* ### DESKTOP NAVBAR END ### */}
             </div>
-          </div>
-        </MaxWidthWrapper>
+          </MaxWidthWrapper>
+        </div>
       </header>
     </div>
   );

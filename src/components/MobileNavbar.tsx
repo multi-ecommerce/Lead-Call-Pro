@@ -45,25 +45,14 @@ export default function MobileNavbar({ session }: { session: Session | null }) {
           {session ? null : (
             <span className="h-6 w-px bg-gray-200 " aria-hidden="true" />
           )}
-          {!session ? (
-            <Link
-              href="/sign-up"
-              className={`${buttonVariants({
-                variant: "ghost",
-              })}, border rounded-sm border-blue-600 hover:bg-blue-600 hover:text-white`}
-            >
-              Try Lead Call Pro
-            </Link>
-          ) : (
-            <Link
-              href="/dashboard"
-              className={`${buttonVariants({
-                variant: "ghost",
-              })}, border rounded-sm border-blue-600 hover:bg-blue-600 hover:text-white`}
-            >
-              Dashboard
-            </Link>
-          )}
+          <Link
+            href={session ? "/dashboard" : "/sign-up"}
+            className={`${buttonVariants({
+              variant: "ghost",
+            })}, border rounded-sm border-blue-600 hover:bg-blue-600 hover:text-white`}
+          >
+            {session ? "Dashboard" : "Try Lead Call Pro"}
+          </Link>
         </div>
       </div>
     </div>
