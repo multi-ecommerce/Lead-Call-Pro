@@ -3,6 +3,8 @@ import Link from "next/link";
 import MaxWidthWrapper from "@/components/MaxWidthWrapper";
 import { Button, buttonVariants } from "@/components/ui/button";
 import { PhoneIncoming, MonitorSmartphone, Leaf } from "lucide-react";
+import Footer from "@/components/Footer";
+import FAQ from "@/components/FAQ";
 
 const perks = [
   {
@@ -15,13 +17,13 @@ const perks = [
     name: "Done-For-You Lead Generation",
     Icon: MonitorSmartphone,
     description:
-      "We pay the ad spend and cover all the costs of building your campaign. We take on all the risk: all you have to do is answer the phone.",
+      "We pay the ad spend and cover all the costs of building your campaign. We take on all the risk, all you have to do is answer the phone.",
   },
   {
-    name: "Only Pay For Valid Leads",
+    name: "Don’t Pay for Clicks. Pay for Customer Calls",
     Icon: Leaf,
     description:
-      "You won't be charged for wrong numbers, existing customers, or calls for services you don't offer. We review your calls each day so you don't pay for them.",
+      "We offer a proven pay-per-call service where you only pay for customer calls. With $0 setup fee, and $0 monthly service fee and $0 cancelation fee.",
   },
 ];
 
@@ -90,6 +92,10 @@ export default function Home() {
           </div>
         </MaxWidthWrapper>
       </section>
+
+      <FAQ />
+
+      <Footer />
     </>
   );
 }

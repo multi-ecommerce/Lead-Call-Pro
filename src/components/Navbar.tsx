@@ -2,7 +2,6 @@
 
 import Link from "next/link";
 import { useEffect, useState } from "react";
-import { useRouter } from "next/navigation";
 
 import { Menu } from "lucide-react";
 import { X } from "lucide-react";
@@ -17,7 +16,6 @@ import NavProfile from "./NavProfile";
 export const Navbar = () => {
   const [navbar, setNavbar] = useState(false);
   const [session, setSession] = useState<Session | null>(null);
-  const router = useRouter();
 
   function toggleNavbar() {
     setNavbar(!navbar);
@@ -76,7 +74,7 @@ export const Navbar = () => {
               <div className="hidden md:ml-20 lg:flex">
                 <div className="text-[0.94rem] [&_ul:hover]:text-blue-600 [&_ul]:opacity-60 grow flex justify-center gap-7">
                   <ul>
-                    <Link href="/">About Us</Link>
+                    <Link href="/">About</Link>
                   </ul>
                   <ul>
                     <Link href="/">Blog</Link>

@@ -34,12 +34,12 @@ const links = [
   },
   {
     name: "Profile & Billings",
-    href: "/dashboard/reportAndStatistics",
+    href: "/dashboard/profile&billings",
     icon: User,
   },
   {
     name: "Compaign Settings",
-    href: "/dashboard/settings",
+    href: "/dashboard/compaign-settings",
     icon: Settings,
   },
 ];
