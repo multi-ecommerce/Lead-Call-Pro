@@ -11,7 +11,7 @@ import MaxWidthWrapper from "./MaxWidthWrapper";
 
 const FAQ: React.FC = () => {
   return (
-    <section id="faq" className="py-10 lg:py-20">
+    <section id="faq" className="py-10 lg:py-14">
       <MaxWidthWrapper>
         <div className="flex flex-col lg:flex-row gap-10 font-sans">
           <div className="">
