@@ -54,7 +54,7 @@ export default function SignIn() {
             })}
             href="/sign-up"
           >
-            Don't have an account?{" "}
+            Don&apos;t have an account?{" "}
             <span className="text-blue-400 font-medium">Sign-Up</span>
             <ArrowRight className="h-4 w-4" />
           </Link>

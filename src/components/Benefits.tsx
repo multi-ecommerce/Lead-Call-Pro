@@ -15,7 +15,7 @@ export default function Benefits() {
           <div>
             <p className="text-[#16334] text-4xl font-extrabold mb-10">
               Visibility is crucial{" "}
-              <span className="block"> to your business's growth</span>
+              <span className="block"> to your business&apos;s growth</span>
             </p>
             <p className="text-lg font-bold mb-5">
               Visibility brings exposure to local customers looking for your
