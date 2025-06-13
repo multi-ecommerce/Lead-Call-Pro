@@ -2,28 +2,27 @@ import { IFAQ } from "@/lib/types";
 
 export const faqs: IFAQ[] = [
   {
-    question: `Is  secure?`,
+    question: `What is the guarantee that I would get phone calls?`,
     answer:
-      "Absolutely. We use bank-level encryption to protect your data and never store your login information. Plus, our biometric authentication adds an extra layer of security.",
+      "We take pride in our commitment, which is why we only charge our customers per call. After we complete our analysis of your campaign, we will set up your campaign across multiple marketing platforms to improve the chance of consistent phone calls from potential customers.",
   },
   {
-    question: `Can I use on multiple devices?`,
+    question: `Do you use Google ads to generate calls?`,
     answer:
-      "Absolutely! Your Finwise account syncs seamlessly across all your devices - smartphone, tablet, and computer.",
+      "Yes, all our calls are generated from PPC ads from Google, Bing, Yahoo, and Facebook.",
   },
   {
-    question: "Can I connect all my bank accounts?",
-    answer: `Yes!  supports connections with over 10,000 financial institutions worldwide. Simply log in through our secure portal to link your accounts.`,
+    question: "Do you know how I can check my campaign performance?",
+    answer: `You can log in to your account dashboard to track your generated calls, listen to call recordings and check your summarized reports of all the generated calls and payments.`,
   },
   {
-    question:
-      "Do I need any financial expertise to use the investing features?",
+    question: "What are your service signup and monthly fees?",
     answer:
-      "Not at all! Our expert-curated portfolios and educational resources make investing accessible to everyone, regardless of experience level.",
+      "We are not like other SEO companies that will lock you into a monthly service fee contract, for results that are not guaranteed. ResultCalls is simple, we don't have any sign-up fee or a set monthly service fee! You ONLY pay when a customer calls.",
   },
   {
-    question: "What if I need help using the app?",
+    question: "What happens after I sign up?",
     answer:
-      "Our dedicated support team is available 24/7 via chat or email. Plus, we offer extensive in-app tutorials and a comprehensive knowledge base to help you make the most of Finwise.",
+      "After you sign up and your account has been approved. An account manager will be assigned to your account. Your account manager will contact you to schedule a time to review your business needs and information. Then your campaign will be launched.",
   },
 ];
