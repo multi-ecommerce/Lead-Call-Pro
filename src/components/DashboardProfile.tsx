@@ -1,14 +1,29 @@
 "use client";
 import { ArrowDown, BadgeHelp, LogOut, User } from "lucide-react";
 import { Button } from "./ui/button";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { fetchUserData } from "@/lib/fetchUserData";
+
+type User = {
+  name: string;
+};
 
 export default function DashboardProfile() {
   const [isOpen, setIsOpen] = useState(false);
+  const [user, setUser] = useState<User | null>(null);
 
   function toggleNavbar() {
     setIsOpen(!isOpen);
   }
+
+  useEffect(() => {
+    const getUser = async () => {
+      const data = await fetchUserData();
+      setUser(data);
+    };
+
+    getUser();
+  }, []);
 
   return (
     <div className="relative inline-block">
@@ -16,7 +31,7 @@ export default function DashboardProfile() {
         onClick={toggleNavbar}
         className="cursor-pointer flex items-center"
       >
-        <span className="mr-2 self-auto">Kashif Awan</span>
+        <span className="mr-2 self-auto">{user?.name}</span>
         <ArrowDown size={18} />
       </button>
 

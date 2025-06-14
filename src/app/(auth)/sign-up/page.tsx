@@ -20,6 +20,7 @@ import { supabase } from "@/lib/supabaseClient";
 export default function SignUp() {
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
+  const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [phone, setPhone] = useState("");
@@ -27,6 +28,7 @@ export default function SignUp() {
   const router = useRouter();
 
   const isFormValid =
+    name.trim() !== "" &&
     phone.trim() !== "" &&
     email.trim() !== "" &&
     password.trim() !== "" &&
@@ -117,6 +119,7 @@ export default function SignUp() {
       const { error: insertError } = await supabase.from("users").insert({
         id: user.id, // or use user.email if you want email as unique
         email: user.email,
+        name,
         phone,
         category,
       });
@@ -137,7 +140,7 @@ export default function SignUp() {
   };
 
   return (
-    <div className="relative flex pt-20 flex-col items-center justify-center lg:px-0 px-3">
+    <div className="relative flex pt-14 flex-col items-center justify-center lg:px-0 px-3">
       <div className="mx-auto flex w-full flex-col justify-center space-y-6 sm:w-[350px]">
         <div className="flex flex-col items-center space-y-2 text-center">
           {/* <Icons.logo className='h-20 w-20' /> */}
@@ -160,6 +163,20 @@ export default function SignUp() {
 
         <div className="grid gap-6">
           <div className="grid gap-2">
+            <div className="grid gap-1 py-2">
+              <Label htmlFor="email">Name</Label>
+              <Input
+                value={name}
+                onChange={(e) => setName(e.target.value)}
+                type="username"
+                // className={cn({
+                //   "focus-visible:ring-red-500": error,
+                // })}
+                placeholder="Ali"
+                required
+              />
+            </div>
+
             <div className="grid gap-1 py-2">
               <Label htmlFor="email">Email</Label>
               <Input
