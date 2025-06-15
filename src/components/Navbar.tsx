@@ -41,9 +41,9 @@ export const Navbar = () => {
   }, []);
 
   return (
-    <div className="sticky z-10 top-0 inset-x-0 h-16 bg-[rgba(255,255,255,0.9)] backdrop-blur-sm">
+    <div className="sticky z-10 top-0 inset-x-0 h-16 backdrop-blur-sm">
       <header className="relative">
-        <div className="border-b border-gray-200">
+        <div className="border-b">
           <MaxWidthWrapper>
             <div className="flex h-16 items-center">
               <div className="ml-4 flex lg:ml-0">
@@ -72,12 +72,12 @@ export const Navbar = () => {
               {/* ### DESKTOP NAVBAR ### */}
 
               <div className="hidden md:ml-20 lg:flex">
-                <div className="text-[0.94rem] [&_ul:hover]:text-blue-600 [&_ul]:opacity-60 grow flex justify-center gap-7">
+                <div className="text-[0.94rem] font-sans [&_ul:hover]:text-blue-600 [&_ul]:opacity-90 grow flex justify-center gap-7">
                   <ul>
-                    <Link href="/">About</Link>
+                    <Link href="/about">About</Link>
                   </ul>
                   <ul>
-                    <Link href="/">Blog</Link>
+                    <Link href="/blog">Blog</Link>
                   </ul>
                 </div>
               </div>

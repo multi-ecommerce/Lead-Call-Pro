@@ -133,6 +133,7 @@ export default function SignUp() {
       } else {
         console.log("Signup successful!");
         router.push("/sign-in");
+        alert("Please Confirm your email and then Sign In");
       }
     }
 

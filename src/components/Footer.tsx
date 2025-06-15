@@ -6,7 +6,7 @@ import MaxWidthWrapper from "./MaxWidthWrapper";
 
 const Footer: React.FC = () => {
   return (
-    <footer className="bg-gray-50 text-[#171717] py-10 border-t">
+    <footer className="bg-gray-50 text-[#171717] py-10">
       <MaxWidthWrapper>
         <div className=" w-full mx-auto px-6 grid grid-cols-1 md:grid-cols-3 gap-10 font-sans">
           <div>

@@ -25,7 +25,7 @@ const perks = [
 
 export default function HowItWorks() {
   return (
-    <section className="border-t border-gray-200 bg-gray-50">
+    <section className="bg-gray-50">
       <MaxWidthWrapper className="py-14">
         <div className="flex flex-1 items-center justify-center mb-8">
           <div className="flex flex-col items-center justify-center">
