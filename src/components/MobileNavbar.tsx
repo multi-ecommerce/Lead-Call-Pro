@@ -25,10 +25,10 @@ export default function MobileNavbar({ session }: { session: Session | null }) {
       <div className="p-5">
         <div className="text-lg font-medium [&_ul:hover]:text-blue-600 [&_ul]:opacity-60 grow flex flex-col justify-start gap-y-1 pb-5 border-b-2">
           <ul>
-            <Link href="/">About Us</Link>
+            <Link href="/about">About</Link>
           </ul>
           <ul>
-            <Link href="/">Blog</Link>
+            <Link href="/blog">Blog</Link>
           </ul>
         </div>
         <div className="flex items-center justify-center pt-3 gap-4">

@@ -45,8 +45,8 @@ export const Navbar = () => {
       <header className="relative">
         <div className="border-b">
           <MaxWidthWrapper>
-            <div className="flex h-16 items-center">
-              <div className="ml-4 flex lg:ml-0">
+            <div className="flex h-16 items-center px-4">
+              <div className="flex lg:ml-0">
                 <Link href="/">
                   <p className="text-xl font-bold font-sans">Lead Call Pro</p>
                 </Link>
