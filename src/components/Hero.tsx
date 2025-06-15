@@ -7,7 +7,7 @@ export default function Hero() {
   return (
     <MaxWidthWrapper>
       <div className="py-12 md:py-20 mx-auto text-center flex flex-col items-center max-w-3xl font-sans">
-        <h1 className="text-4xl font-bold tracking-tight text-gray-900 sm:text-[4rem]">
+        <h1 className="text-4xl font-bold tracking-tight text-[#16334e] sm:text-[4rem]">
           Get new customers and only{" "}
           <span className="text-blue-600">pay per call</span>.
         </h1>
