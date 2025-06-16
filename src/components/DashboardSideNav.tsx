@@ -51,7 +51,7 @@ export default function DashboardSideNav({
   return (
     <div>
       <div className="flex justify-between items-center px-3 h-12">
-        <p className="text-sm font-sans font-bold">LOGO</p>
+        <p className="text-sm font-bold">LOGO</p>
         <button
           onClick={closeSidebar}
           className="lg:hidden text-gray-600 hover:text-black cursor-pointer"
@@ -67,12 +67,12 @@ export default function DashboardSideNav({
               key={link.name}
               href={link.href}
               className={cn(
-                "font-sans w-full flex h-16 items-center justify-start gap-2 py-1 max-md:px-4 text-[0.8rem] font-medium hover:bg-gray-300 hover:text-black  md:justify-start md:p-2 md:px-3 group",
+                "w-full flex h-16 items-center justify-start gap-2 py-1 max-md:px-4 text-[0.8rem] font-medium hover:bg-gray-300 hover:text-black  md:justify-start md:p-2 md:px-3 group",
                 { "bg-[#dc3545] text-[#fff]": pathname === link.href }
               )}
             >
               <LinkIcon
-                className={cn("w-6 group-hover:fill-black", {
+                className={cn("w-6 ", {
                   "fill-white": pathname === link.href,
                 })}
                 size={20}

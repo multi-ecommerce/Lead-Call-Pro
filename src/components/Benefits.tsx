@@ -15,7 +15,7 @@ export default function Benefits() {
         </div>
         <div className="max-w-xl w-full">
           <div>
-            <p className="text-[#16334e] text-4xl font-extrabold mb-10">
+            <p className="text-[#16334e] text-3xl font-extrabold mb-10">
               Visibility is crucial{" "}
               <span className="block"> to your business&apos;s growth</span>
             </p>
@@ -33,7 +33,7 @@ export default function Benefits() {
             </p>
             <Link
               href="/sign-up"
-              className="px-7.5 py-2.5 rounded-xs bg-green-500 text-white font-medium text-lg hover:bg-green-400 hover:text-white "
+              className="px-7.5 py-2.5 rounded-xs bg-green-500 text-white font-medium text-lg hover:bg-green-400 hover:text-white"
             >
               Start For Free
             </Link>

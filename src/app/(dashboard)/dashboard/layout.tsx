@@ -37,9 +37,7 @@ export default function DashboardLayout({
               <Menu />
             </button>
           </div>
-          <div className="text-lg font-bold font-sans text-blue-600">
-            Lead Call Pro
-          </div>
+          <div className="text-lg font-bold text-blue-600">Lead Call Pro</div>
 
           <DashboardProfile />
         </div>
