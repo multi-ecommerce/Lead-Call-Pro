@@ -3,7 +3,7 @@ import { useState } from "react";
 
 import { Menu } from "lucide-react";
 
-import DashboardProfile from "@/components/DashboardProfile";
+import DashboardHeader from "@/components/DashboardHeader";
 import DashboardSideNav from "@/components/DashboardSideNav";
 import { cn } from "@/lib/utils";
 
@@ -39,7 +39,7 @@ export default function DashboardLayout({
           </div>
           <div className="text-lg font-bold text-blue-600">Lead Call Pro</div>
 
-          <DashboardProfile />
+          <DashboardHeader />
         </div>
 
         <div className="flex-1 overflow-auto p-4">{children}</div>

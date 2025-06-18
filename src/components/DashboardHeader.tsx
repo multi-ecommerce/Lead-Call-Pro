@@ -3,17 +3,25 @@ import { ArrowDown, BadgeHelp, LogOut, User } from "lucide-react";
 import { Button } from "./ui/button";
 import { useEffect, useState } from "react";
 import { fetchUserData } from "@/lib/fetchUserData";
+import { supabase } from "@/lib/supabaseClient";
+import { useRouter } from "next/navigation";
 
 type User = {
   name: string;
 };
 
-export default function DashboardProfile() {
+export default function DashboardHeader() {
   const [isOpen, setIsOpen] = useState(false);
   const [user, setUser] = useState<User | null>(null);
+  const router = useRouter();
 
   function toggleNavbar() {
     setIsOpen(!isOpen);
+  }
+
+  async function logOut() {
+    await supabase.auth.signOut();
+    router.push("/");
   }
 
   useEffect(() => {
@@ -58,6 +66,7 @@ export default function DashboardProfile() {
           <div className="border-t my-1" />
 
           <Button
+            onClick={logOut}
             variant="ghost"
             size="sm"
             className="w-full rounded-sm justify-start"

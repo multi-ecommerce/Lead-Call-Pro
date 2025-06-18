@@ -13,7 +13,7 @@ import { supabase } from "@/lib/supabaseClient";
 import { Session } from "@supabase/supabase-js";
 import NavProfile from "./NavProfile";
 
-export const Navbar = () => {
+export default function Navbar() {
   const [navbar, setNavbar] = useState(false);
   const [session, setSession] = useState<Session | null>(null);
 
@@ -119,4 +119,4 @@ export const Navbar = () => {
       </header>
     </div>
   );
-};
+}
