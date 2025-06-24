@@ -9,13 +9,13 @@ import Image1 from "../../public/shopopen.jpg";
 export default function Benefits() {
   return (
     <MaxWidthWrapper className="md:px-14 py-12 lg:py-20">
-      <div className="flex flex-wrap flex-col items-center justify-center px-6 py-4 gap-6 lg:flex-row lg:gap-16 lg:flex-nowrap w-full text-[#212529]">
+      <div className="flex flex-wrap flex-col items-center justify-center px-6 py-4 gap-6 lg:flex-row lg:gap-18 lg:flex-nowrap w-full text-[#212529]">
         <div className="shrink-0">
           <Image src={Image1} alt="Shop Image" width={400} />
         </div>
         <div className="max-w-xl w-full">
           <div>
-            <p className="text-[#16334e] text-3xl font-extrabold mb-10">
+            <p className="text-[#16334e] text-3xl font-extrabold mb-5">
               Visibility is crucial{" "}
               <span className="block"> to your business&apos;s growth</span>
             </p>

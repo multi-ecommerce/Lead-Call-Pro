@@ -37,7 +37,7 @@ const FAQ: React.FC = () => {
                 <Disclosure as="div">
                   {({ open }) => (
                     <>
-                      <DisclosureButton className="flex items-center justify-between w-full px-4 pt-7 text-lg text-left border-t">
+                      <DisclosureButton className="flex items-center justify-between w-full px-4 pt-7 text-lg text-left border-t flex-nowrap">
                         <span className="text-lg font-semibold">
                           {faq.question}
                         </span>
