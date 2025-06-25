@@ -44,7 +44,7 @@ export default function BlogPosts() {
               alt={post.title}
               className="w-full h-[22rem] object-cover"
             />
-            <div className="p-10">
+            <div className="p-3 lg:p-10">
               <h3 className="text-[#16334e] text-3xl font-medium mb-2 hover:text-blue-600">
                 {post.title}
               </h3>
