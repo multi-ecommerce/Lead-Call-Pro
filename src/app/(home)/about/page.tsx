@@ -4,11 +4,11 @@ import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 
 import MaxWidthWrapper from "@/components/MaxWidthWrapper";
-import Banner from "../../../../public/banner-image.png";
-import Feature from "../../../../public/feature-thumb.png";
-import Testimonial from "../../../../public/testimonial-thumb.png";
-import Quote from "../../../../public/quote.png";
-import Commenter from "../../../../public/commenter-thumb.png";
+import Banner from "../../../../public/about/banner-image.png";
+import Feature from "../../../../public/about/feature-thumb.png";
+import Testimonial from "../../../../public/about/testimonial-thumb.png";
+import Quote from "../../../../public/about/quote.png";
+import Commenter from "../../../../public/about/commenter-thumb.png";
 import Footer from "@/components/Footer";
 
 export default function About() {
@@ -78,7 +78,7 @@ export default function About() {
                   href="/sign-up"
                   className="text-blue-600 font-bold text-lg flex items-center gap-4"
                 >
-                  Try Lead Call Pro for Free{" "}
+                  Try Lead Call Pro for Free
                   <ArrowRight
                     size={22}
                     className="bg-blue-600 text-white rounded-full"
