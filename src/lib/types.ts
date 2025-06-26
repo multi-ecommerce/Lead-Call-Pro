@@ -19,3 +19,15 @@ export interface ISocials {
   x?: string;
   [key: string]: string | undefined;
 }
+
+export interface BlogPostTypes {
+  id: number;
+  slug: string;
+  category: string;
+  title: string;
+  date: string;
+  name: string;
+  image: string;
+  description: string;
+  content: string;
+}

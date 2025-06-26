@@ -3,6 +3,7 @@ import Link from "next/link";
 
 import { ArrowRight } from "lucide-react";
 
+import Header from "@/components/Header";
 import MaxWidthWrapper from "@/components/MaxWidthWrapper";
 import Banner from "../../../../public/about/banner-image.png";
 import Feature from "../../../../public/about/feature-thumb.png";
@@ -14,12 +15,7 @@ import Footer from "@/components/Footer";
 export default function About() {
   return (
     <div>
-      <div className="bg-[url('/images/page-header-bg.webp')] bg-cover bg-center bg-no-repeat h-[32rem] w-full flex items-center px-8 lg:px-20 relative -top-16">
-        <div className="text-white mt-24">
-          <p className="text-lg font-semibold pl-2">WHO WE ARE</p>
-          <p className="text-5xl font-bold">About Lead Call Pro</p>
-        </div>
-      </div>
+      <Header heading="About Lead Call Pro" subHeading="WHO WE ARE" />
       <div>
         <MaxWidthWrapper className="py-12">
           <div className="flex flex-wrap flex-col items-center justify-between py-4 gap-12 lg:flex-row lg:gap-18 lg:flex-nowrap w-full text-[#212529]">
@@ -75,10 +71,10 @@ export default function About() {
                   dolore.
                 </p>
                 <Link
-                  href="/sign-up"
+                  href=""
                   className="text-blue-600 font-bold text-lg flex items-center gap-4"
                 >
-                  Try Lead Call Pro for Free
+                  See full case story
                   <ArrowRight
                     size={22}
                     className="bg-blue-600 text-white rounded-full"
