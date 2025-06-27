@@ -5,7 +5,12 @@ import { useEffect, useState } from "react";
 import { buttonVariants } from "./ui/button";
 import { Session } from "@supabase/supabase-js";
 
-export default function MobileNavbar({ session }: { session: Session | null }) {
+interface MobileNavbarProps {
+  session: Session | null;
+  onClose: () => void;
+}
+
+export default function MobileNavbar({ session, onClose }: MobileNavbarProps) {
   const [animateIn, setAnimateIn] = useState(false);
 
   useEffect(() => {
@@ -25,16 +30,21 @@ export default function MobileNavbar({ session }: { session: Session | null }) {
       <div className="p-5">
         <div className="text-lg font-medium [&_ul:hover]:text-blue-600 [&_ul]:opacity-60 grow flex flex-col justify-start gap-y-1 pb-5 border-b-2">
           <ul>
-            <Link href="/about">About</Link>
+            <Link href="/about" onClick={onClose}>
+              About
+            </Link>
           </ul>
           <ul>
-            <Link href="/blog">Blog</Link>
+            <Link href="/blog" onClick={onClose}>
+              Blog
+            </Link>
           </ul>
         </div>
         <div className="flex items-center justify-center pt-3 gap-4">
           {session ? null : (
             <Link
               href="/sign-in"
+              onClick={onClose}
               className={buttonVariants({
                 variant: "ghost",
               })}
@@ -47,6 +57,7 @@ export default function MobileNavbar({ session }: { session: Session | null }) {
           )}
           <Link
             href={session ? "/dashboard" : "/sign-up"}
+            onClick={onClose}
             className={`${buttonVariants({
               variant: "ghost",
             })}, border rounded-sm border-blue-600 hover:bg-blue-600 hover:text-white`}

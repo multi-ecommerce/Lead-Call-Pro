@@ -63,7 +63,10 @@ export default function Navbar() {
 
               {navbar && (
                 <div className="bg-[#f1f5f9]">
-                  <MobileNavbar session={session} />
+                  <MobileNavbar
+                    session={session}
+                    onClose={() => setNavbar(false)}
+                  />
                 </div>
               )}
 
