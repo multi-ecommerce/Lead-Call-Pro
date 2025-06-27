@@ -19,6 +19,7 @@ export default async function CategoryPage({ params }: PageProps) {
   const { category } = await params;
 
   const filtered = blogPosts.filter((p) => p.category === category);
+  if (!filtered) return <div className="p-10">Post not found.</div>;
   return (
     <div>
       <Header heading="Latest News" subHeading="BLOG POST" />

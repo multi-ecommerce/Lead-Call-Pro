@@ -1,3 +1,5 @@
+import { ReactNode } from "react";
+
 export interface IMenuItem {
   text: string;
   url: string;
@@ -29,5 +31,5 @@ export interface BlogPostTypes {
   name: string;
   image: string;
   description: string;
-  content: string;
+  Content: () => ReactNode;
 }

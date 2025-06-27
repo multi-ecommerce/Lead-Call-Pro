@@ -27,7 +27,10 @@ export default function BlogSideBar() {
         <h1 className="text-3xl font-semibold mb-4">Solutions</h1>
         <div className="flex flex-col gap-4">
           <div className="flex items-center justify-between">
-            <Link href="" className="font-semibold hover:text-blue-600">
+            <Link
+              href="/blog/plumbing"
+              className="font-semibold hover:text-blue-600"
+            >
               Plumbing
             </Link>
             <p className="text-sm">5</p>
@@ -42,43 +45,64 @@ export default function BlogSideBar() {
             <p className="text-sm">5</p>
           </div>
           <div className="flex items-center justify-between">
-            <Link href="" className="font-semibold hover:text-blue-600">
+            <Link
+              href="/blog/roofing"
+              className="font-semibold hover:text-blue-600"
+            >
               Roofing
             </Link>
             <p className="text-sm">5</p>
           </div>
           <div className="flex items-center justify-between">
-            <Link href="" className="font-semibold hover:text-blue-600">
+            <Link
+              href="/blog/electrician"
+              className="font-semibold hover:text-blue-600"
+            >
               Electrician
             </Link>
             <p className="text-sm">5</p>
           </div>
           <div className="flex items-center justify-between">
-            <Link href="" className="font-semibold hover:text-blue-600">
+            <Link
+              href="/blog/pest-control"
+              className="font-semibold hover:text-blue-600"
+            >
               Pest Control
             </Link>
             <p className="text-sm">5</p>
           </div>
           <div className="flex items-center justify-between">
-            <Link href="" className="font-semibold hover:text-blue-600">
+            <Link
+              href="/blog/water-damage-restoration"
+              className="font-semibold hover:text-blue-600"
+            >
               Water Damage Restoration
             </Link>
             <p className="text-sm">5</p>
           </div>
           <div className="flex items-center justify-between">
-            <Link href="" className="font-semibold hover:text-blue-600">
+            <Link
+              href="/blog/personal-injury-attorney"
+              className="font-semibold hover:text-blue-600"
+            >
               Personal Injury Attorney
             </Link>
             <p className="text-sm">6</p>
           </div>
           <div className="flex items-center justify-between">
-            <Link href="" className="font-semibold hover:text-blue-600">
+            <Link
+              href="/blog/appliance-repair"
+              className="font-semibold hover:text-blue-600"
+            >
               Appliance Repair
             </Link>
             <p className="text-sm">6</p>
           </div>
           <div className="flex items-center justify-between">
-            <Link href="" className="font-semibold hover:text-blue-600">
+            <Link
+              href="/blog/health-insurance"
+              className="font-semibold hover:text-blue-600"
+            >
               Health Insurance
             </Link>
             <p className="text-sm">1</p>

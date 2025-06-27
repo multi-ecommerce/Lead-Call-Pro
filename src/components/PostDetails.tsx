@@ -1,4 +1,3 @@
-"use client";
 import Image from "next/image";
 
 import { CalendarDaysIcon, User2Icon } from "lucide-react";
@@ -25,7 +24,7 @@ export default function PostDetails({ post }: Props) {
           {post.name}
         </p>
       </div>
-      <div className="relative w-full h-[30rem] mb-6">
+      <div className="relative w-full h-[22rem] lg:h-[30rem] mb-6">
         <Image
           src={post.image}
           alt={post.title}
@@ -33,7 +32,9 @@ export default function PostDetails({ post }: Props) {
           className="object-cover rounded-lg"
         />
       </div>
-      <article className="prose prose-lg">{post.content}</article>
+      <article className="prose prose-lg px-4">
+        <post.Content />
+      </article>
     </div>
   );
 }
