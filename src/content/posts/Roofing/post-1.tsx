@@ -11,7 +11,7 @@ export default function RoofingPost1() {
       </p>
       <p className="mb-4">
         But what if you could bring those visitors back? What if you could
-        remind them about your business when they're ready to buy?
+        remind them about your business when they are ready to buy?
       </p>
       <p className="mb-4">
         Facebook remarketing does exactly that.
@@ -22,7 +22,7 @@ export default function RoofingPost1() {
           {" "}
           It shows your ads to people who already visited your website.
         </Link>{" "}
-        These aren't strangers - they're potential customers who already know
+        These are not strangers - they are potential customers who already know
         about your business.
       </p>
       <p className="mb-4">
@@ -36,7 +36,7 @@ export default function RoofingPost1() {
         lead generation strategies exponentially more effective.
       </p>
       <p className="mb-6">
-        Here's what you'll learn in this guide: how to set up Facebook
+        Here is what you will learn in this guide: how to set up Facebook
         remarketing for your roofing business, create ads that work, and turn
         more website visitors into high quality roofing leads.
       </p>
