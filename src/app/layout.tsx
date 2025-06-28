@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono, Nunito } from "next/font/google";
 import "./globals.css";
-import Head from "next/head";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -20,8 +19,25 @@ const nunito = Nunito({
 });
 
 export const metadata: Metadata = {
-  title: "Lead Call Pro",
-  description: "Marketplace for high-quality digital assets",
+  title: "Exclusive Pay-Per-Call Leads for Service Professionals",
+  description:
+    "Grow your business with more customer calls. Sign up today for our pay per call lead service to grow your business. Setup multiple online campaigns and optimize your Google My Business …",
+  openGraph: {
+    title: "Lead Call Pro – Pay Per Call Leads",
+    description:
+      "Sign up today for pay-per-call leads and boost your business.",
+    url: "https://leadcallpro.com",
+    siteName: "Lead Call Pro",
+    images: [
+      {
+        url: "",
+        width: 1200,
+        height: 630,
+      },
+    ],
+    locale: "en_US",
+    type: "website",
+  },
 };
 
 export default function RootLayout({
@@ -31,13 +47,6 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <Head>
-        <title>Lead Call Pro</title>
-        <meta
-          name="description"
-          content="Grow your business with more customer calls. Sign up today for our pay per call lead service to grow your business. Setup multiple online campaigns and optimize your Google My Business …"
-        />
-      </Head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} ${nunito.variable} font-nunito antialiased`}
       >
