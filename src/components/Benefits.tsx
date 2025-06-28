@@ -4,14 +4,19 @@ import Link from "next/link";
 import { CircleCheckBig } from "lucide-react";
 
 import MaxWidthWrapper from "./MaxWidthWrapper";
-import Image1 from "../../public/shopopen.jpg";
+import Image1 from "../../public/image1.jpg";
 
 export default function Benefits() {
   return (
     <MaxWidthWrapper className="md:px-14 py-12 lg:py-20">
       <div className="flex flex-wrap flex-col items-center justify-center px-6 py-4 gap-6 lg:flex-row lg:gap-18 lg:flex-nowrap w-full text-[#212529]">
         <div className="shrink-0">
-          <Image src={Image1} alt="Shop Image" width={400} />
+          <Image
+            src={Image1}
+            alt="Shop Image"
+            width={400}
+            className="rounded-xs"
+          />
         </div>
         <div className="max-w-xl w-full">
           <div>
@@ -33,7 +38,7 @@ export default function Benefits() {
             </p>
             <Link
               href="/sign-up"
-              className="px-7.5 py-2.5 rounded-xs bg-green-500 text-white font-medium text-lg hover:bg-green-400 hover:text-white"
+              className="px-5 py-2 rounded-sm bg-green-500 text-white font-medium hover:bg-green-400 hover:text-white"
             >
               Start For Free
             </Link>
