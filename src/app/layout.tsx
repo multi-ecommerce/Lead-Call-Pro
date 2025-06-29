@@ -22,22 +22,31 @@ export const metadata: Metadata = {
   title: "Exclusive Pay-Per-Call Leads for Service Professionals",
   description:
     "Grow your business with more customer calls. Sign up today for our pay per call lead service to grow your business. Setup multiple online campaigns and optimize your Google My Business …",
-  openGraph: {
-    title: "Lead Call Pro – Pay Per Call Leads",
-    description:
-      "Sign up today for pay-per-call leads and boost your business.",
-    url: "https://leadcallpro.com",
-    siteName: "Lead Call Pro",
-    images: [
-      {
-        url: "",
-        width: 1200,
-        height: 630,
-      },
-    ],
-    locale: "en_US",
-    type: "website",
-  },
+  // openGraph: {
+  //   title: "Lead Call Pro – Pay Per Call Leads",
+  //   description:
+  //     "Sign up today for pay-per-call leads and boost your business.",
+  //   url: "https://leadcallpro.com",
+  //   siteName: "Lead Call Pro",
+  //   images: [
+  //     {
+  //       url: "",
+  //       width: 1200,
+  //       height: 630,
+  //     },
+  //   ],
+  //   locale: "en_US",
+  //   type: "website",
+  // },
+  keywords: [
+    "Lead Call Pro",
+    "Pay per call leads",
+    "Pay per call lead service",
+    "pay per call",
+    "marketing",
+    "pay per call lead generation",
+    "buy pay per call leads",
+  ],
 };
 
 export default function RootLayout({

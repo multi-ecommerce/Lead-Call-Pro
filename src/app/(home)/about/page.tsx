@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -11,6 +12,10 @@ import Testimonial from "../../../../public/about/testimonial-thumb.png";
 import Quote from "../../../../public/about/quote.png";
 import Commenter from "../../../../public/about/commenter-thumb.png";
 import Footer from "@/components/Footer";
+
+export const metadata: Metadata = {
+  title: "About | Lead Call Pro",
+};
 
 export default function About() {
   return (

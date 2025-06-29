@@ -1,3 +1,5 @@
+import type { Metadata } from "next";
+
 import { blogPosts } from "@/lib/blogData";
 import BlogPosts from "@/components/BlogPosts";
 import Header from "@/components/Header";
@@ -8,6 +10,21 @@ import BlogSideBar from "@/components/BlogSideBar";
 interface PageProps {
   params: Promise<{ category: string }>;
 }
+
+function capitalizeFirstLetter(str: string): string {
+  if (!str) return "";
+  return str.charAt(0).toUpperCase() + str.slice(1);
+}
+
+export const generateMetadata = async ({
+  params,
+}: PageProps): Promise<Metadata> => {
+  const name = (await params).category;
+  const Capitalize = capitalizeFirstLetter(name);
+  return {
+    title: `${Capitalize}`,
+  };
+};
 
 // Pre-renders all dynamic routes at build time, improving performance and SEO.
 export async function generateStaticParams() {

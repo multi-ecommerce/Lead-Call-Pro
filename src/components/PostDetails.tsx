@@ -29,6 +29,7 @@ export default function PostDetails({ post }: Props) {
           src={post.image}
           alt={post.title}
           fill
+          priority
           className="object-cover rounded-lg"
         />
       </div>

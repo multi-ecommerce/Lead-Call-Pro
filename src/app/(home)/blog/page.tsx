@@ -1,9 +1,15 @@
+import type { Metadata } from "next";
+
 import BlogPosts from "@/components/BlogPosts";
 import Footer from "@/components/Footer";
 import MaxWidthWrapper from "@/components/MaxWidthWrapper";
 import { blogPosts } from "@/lib/blogData";
 import Header from "@/components/Header";
 import BlogSideBar from "@/components/BlogSideBar";
+
+export const metadata: Metadata = {
+  title: "Blog | Lead Call Pro",
+};
 
 export default function Blog() {
   return (

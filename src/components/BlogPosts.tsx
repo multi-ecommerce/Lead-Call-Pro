@@ -23,6 +23,7 @@ export default function BlogPosts({ posts }: Props) {
                 src={post.image}
                 alt={post.title}
                 fill
+                priority
                 className="object-cover"
               />
             </div>
