@@ -29,7 +29,6 @@ export default function SignUp() {
 
   const isFormValid =
     name.trim() !== "" &&
-    phone.trim() !== "" &&
     email.trim() !== "" &&
     password.trim() !== "" &&
     category !== "";
@@ -207,7 +206,7 @@ export default function SignUp() {
             </div>
 
             <div className="grid gap-1 py-2">
-              <Label htmlFor="password">Phone Number</Label>
+              <Label htmlFor="password">Phone Number (optional)</Label>
               <Input
                 value={phone}
                 onChange={(e) => setPhone(e.target.value)}
@@ -215,7 +214,6 @@ export default function SignUp() {
                 pattern="[0-9]{4}-[0-9]{7}"
                 maxLength={11}
                 placeholder="0300-0000000"
-                required
                 // className={cn({
                 //   "focus-visible:ring-red-500": error,
                 // })}

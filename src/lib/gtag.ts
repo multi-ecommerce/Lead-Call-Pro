@@ -1,4 +1,4 @@
-export const GA_MEASUREMENT_ID = "G-Y398ZCH73Y";
+export const GA_MEASUREMENT_ID = "G-T3C5G702QK";
 
 // Log pageviews
 export const pageview = (url: string) => {
