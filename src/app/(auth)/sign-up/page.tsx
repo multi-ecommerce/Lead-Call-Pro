@@ -213,7 +213,7 @@ export default function SignUp() {
                 type="tel"
                 pattern="[0-9]{4}-[0-9]{7}"
                 maxLength={11}
-                placeholder="0300-0000000"
+                placeholder="0300-0130800"
                 // className={cn({
                 //   "focus-visible:ring-red-500": error,
                 // })}
