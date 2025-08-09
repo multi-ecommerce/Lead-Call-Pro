@@ -2,8 +2,6 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono, Nunito } from "next/font/google";
 import "./globals.css";
 import Script from "next/script";
-import * as gtag from "../lib/gtag";
-import GoogleAnalytics from "@/components/GoogleAnalytics";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -59,28 +57,24 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} ${nunito.variable} font-nunito antialiased`}
-      >
+      <head>
+        {/* Google Analytics tag */}
         <Script
+          src={`https://www.googletagmanager.com/gtag/js?id=G-T3C5G702QK`}
           strategy="afterInteractive"
-          src={`https://www.googletagmanager.com/gtag/js?id=${gtag.GA_MEASUREMENT_ID}`}
         />
-        <Script
-          id="gtag-init"
-          strategy="afterInteractive"
-          dangerouslySetInnerHTML={{
-            __html: `
+        <Script id="google-analytics" strategy="afterInteractive">
+          {`
             window.dataLayer = window.dataLayer || [];
             function gtag(){dataLayer.push(arguments);}
             gtag('js', new Date());
-            gtag('config', '${gtag.GA_MEASUREMENT_ID}', {
-              page_path: window.location.pathname,
-            });
-          `,
-          }}
-        />
-        <GoogleAnalytics />
+            gtag('config', 'G-T3C5G702QK');
+          `}
+        </Script>
+      </head>
+      <body
+        className={`${geistSans.variable} ${geistMono.variable} ${nunito.variable} font-nunito antialiased`}
+      >
         {children}
       </body>
     </html>
