@@ -1,7 +1,8 @@
 "use client";
 
 import Link from "next/link";
-import { useEffect, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
+import { usePathname } from "next/navigation";
 
 import { Menu } from "lucide-react";
 import { X } from "lucide-react";
@@ -16,6 +17,15 @@ import NavProfile from "./NavProfile";
 export default function Navbar() {
   const [navbar, setNavbar] = useState(false);
   const [session, setSession] = useState<Session | null>(null);
+  const pathname = usePathname();
+
+  const links = useMemo(
+    () => [
+      { href: "/about", label: "About" },
+      { href: "/blog", label: "Blog" },
+    ],
+    []
+  );
 
   function toggleNavbar() {
     setNavbar(!navbar);
@@ -41,14 +51,14 @@ export default function Navbar() {
   }, []);
 
   return (
-    <div className="sticky z-10 top-0 inset-x-0 h-16 backdrop-blur-sm">
+    <div className="sticky z-10 top-0 inset-x-0 h-16 backdrop-blur-sm bg-background/70">
       <header className="relative">
-        <div className="border-b">
+        <div className="border-b border-border">
           <MaxWidthWrapper>
             <div className="flex h-16 items-center px-4">
               <div className="flex lg:ml-0">
                 <Link href="/">
-                  <p className="text-xl font-bold font-sans">Lead Call Pro</p>
+                  <p className="text-xl font-bold font-sans text-foreground">Lead Call Pro</p>
                 </Link>
               </div>
 
@@ -56,13 +66,13 @@ export default function Navbar() {
               <div className="lg:hidden p-1 rounded-md flex flex-1 items-center justify-end space-x-6">
                 {session ? <NavProfile session={session} /> : null}
 
-                <button onClick={toggleNavbar}>
-                  {navbar ? <X color="blue" /> : <Menu color="blue" />}
+                <button onClick={toggleNavbar} className="text-primary">
+                  {navbar ? <X /> : <Menu />}
                 </button>
               </div>
 
               {navbar && (
-                <div className="bg-[#f1f5f9]">
+                <div className="bg-card">
                   <MobileNavbar
                     session={session}
                     onClose={() => setNavbar(false)}
@@ -75,14 +85,25 @@ export default function Navbar() {
               {/* ### DESKTOP NAVBAR ### */}
 
               <div className="hidden md:ml-20 lg:flex">
-                <div className="text-[0.94rem] font-sans [&_ul:hover]:text-blue-600 [&_ul]:opacity-90 grow flex justify-center gap-7">
-                  <ul>
-                    <Link href="/about">About</Link>
-                  </ul>
-                  <ul>
-                    <Link href="/blog">Blog</Link>
-                  </ul>
-                </div>
+                <nav className="text-[0.94rem] font-sans grow flex justify-center gap-7">
+                  {links.map(({ href, label }) => {
+                    const active = pathname === href || pathname?.startsWith(`${href}/`);
+                    return (
+                      <Link
+                        key={href}
+                        href={href}
+                        className={
+                          `transition-colors inline-flex items-center border-b-2 ` +
+                          (active
+                            ? "text-primary border-primary"
+                            : "text-muted-foreground hover:text-foreground border-transparent")
+                        }
+                      >
+                        {label}
+                      </Link>
+                    );
+                  })}
+                </nav>
               </div>
 
               <div className="ml-auto flex items-center">
@@ -99,14 +120,14 @@ export default function Navbar() {
                   )}
 
                   {session ? null : (
-                    <span className="h-6 w-px bg-gray-200" aria-hidden="true" />
+                    <span className="h-6 w-px bg-border" aria-hidden="true" />
                   )}
 
                   <Link
                     href={session ? "/dashboard" : "/sign-up"}
                     className={`${buttonVariants({
                       variant: "ghost",
-                    })}, border border-blue-600 rounded-sm hover:bg-blue-600 hover:text-white`}
+                    })} border border-primary rounded-sm hover:bg-primary hover:text-primary-foreground`}
                   >
                     {session ? "Dashboard" : "Try Lead Call Pro"}
                   </Link>

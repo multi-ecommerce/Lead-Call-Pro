@@ -18,7 +18,7 @@ export const faqs: IFAQ[] = [
   {
     question: "What are your service signup and monthly fees?",
     answer:
-      "We are not like other SEO companies that will lock you into a monthly service fee contract, for results that are not guaranteed. ResultCalls is simple, we don't have any sign-up fee or a set monthly service fee! You ONLY pay when a customer calls.",
+      "We are not like other SEO companies that will lock you into a monthly service fee contract, for results that are not guaranteed. Lead Call Pro is simple, we don't have any sign-up fee or a set monthly service fee! You ONLY pay when a customer calls.",
   },
   {
     question: "What happens after I sign up?",

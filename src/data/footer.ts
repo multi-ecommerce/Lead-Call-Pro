@@ -23,8 +23,8 @@ export const footerDetails: {
       url: "/blog",
     },
   ],
-  email: "abdulaleem313@yahoo.com",
-  telephone: "+92 333 5104569",
+  email: "leadcallpro@gmail.com",
+  telephone: "",
   socials: {
     // github: 'https://github.com',
     // x: 'https://twitter.com/x',

@@ -31,12 +31,12 @@ export default function About() {
                   A Los Angeles-based Company
                 </p>
                 <p className="text-[#212529] text-[1rem] mb-4 max-w-lg">
-                  ResultCalls is a marketing technology company that uses
+                  Lead Call Pro is a marketing technology company that uses
                   programmatic tools and unique processes to help businesses
                   organically generate calls from local customers.
                 </p>
                 <p className="text-[#212529] text-[1rem] mb-8 max-w-lg">
-                  ResultCalls utilizes multiple marketing platforms to drive
+                  Lead Call Pro utilizes multiple marketing platforms to drive
                   potential customer calls. With our expertise, we have serviced
                   over 2,000 happy local businesses and generated over 250,000
                   calls from local customers, resulting in improved business

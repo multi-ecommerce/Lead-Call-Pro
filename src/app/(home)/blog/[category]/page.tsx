@@ -43,7 +43,7 @@ export default async function CategoryPage({ params }: PageProps) {
       <MaxWidthWrapper className="py-20">
         <div className="flex flex-col lg:flex-row gap-8">
           <div className="flex-3/8">
-            <BlogPosts posts={filtered} />
+            <BlogPosts posts={filtered.map(({ Content, ...rest }) => rest)} />
           </div>
           <div className="flex-1">
             <BlogSideBar />

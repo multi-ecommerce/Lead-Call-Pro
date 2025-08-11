@@ -8,7 +8,7 @@ export default function BlogSideBar() {
       <div className="bg-white shadow-md p-8">
         <h1 className="text-3xl font-extrabold mb-4">Lead Call Pro</h1>
         <p>
-          ResultCalls uses programmatic tools and unique processes to help
+          Lead Call Pro uses programmatic tools and unique processes to help
           businesses improve their exposure, gain new customers, and pay based
           on results.
         </p>
