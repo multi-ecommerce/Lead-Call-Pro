@@ -15,18 +15,26 @@ type Props = {
 
 export default function BlogListClient({ posts }: Props) {
   const [searchTerm, setSearchTerm] = useState("");
-  const [selectedCategory, setSelectedCategory] = useState("all");
+  const [selectedCategory, setSelectedCategory] = useState("All");
   const [currentPage, setCurrentPage] = useState(1);
   const [loading] = useState(false);
 
   const postsPerPage = 6;
 
   const filteredPosts = useMemo(() => {
-    return filterPosts(posts as unknown as BlogPostTypes[], searchTerm, selectedCategory) as unknown as ListPost[];
+    return filterPosts(
+      posts as unknown as BlogPostTypes[],
+      searchTerm,
+      selectedCategory
+    ) as unknown as ListPost[];
   }, [searchTerm, selectedCategory, posts]);
 
   const paginationData = useMemo(() => {
-    const paged = paginatePosts(filteredPosts as unknown as BlogPostTypes[], currentPage, postsPerPage);
+    const paged = paginatePosts(
+      filteredPosts as unknown as BlogPostTypes[],
+      currentPage,
+      postsPerPage
+    );
     return {
       ...paged,
       paginatedPosts: paged.paginatedPosts as unknown as ListPost[],
@@ -61,19 +69,29 @@ export default function BlogListClient({ posts }: Props) {
       <div className="mb-6">
         <p className="text-muted-foreground">
           {filteredPosts.length === posts.length ? (
-            <>Showing all <span className="font-semibold">{filteredPosts.length}</span> posts</>
+            <>
+              Showing all{" "}
+              <span className="font-semibold">{filteredPosts.length}</span>{" "}
+              posts
+            </>
           ) : (
             <>
-              Showing <span className="font-semibold">{filteredPosts.length}</span> of{" "}
+              Showing{" "}
+              <span className="font-semibold">{filteredPosts.length}</span> of{" "}
               <span className="font-semibold">{posts.length}</span> posts
               {searchTerm && (
                 <span>
-                  {" "}for "<span className="font-semibold">{searchTerm}</span>"
+                  {" "}
+                  for "<span className="font-semibold">{searchTerm}</span>"
                 </span>
               )}
               {selectedCategory !== "all" && (
                 <span>
-                  {" "}in <span className="font-semibold capitalize">{selectedCategory}</span>
+                  {" "}
+                  in{" "}
+                  <span className="font-semibold capitalize">
+                    {selectedCategory}
+                  </span>
                 </span>
               )}
             </>

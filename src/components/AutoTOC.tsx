@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useState } from "react";
 import TableOfContents from "./TableOfContents";
 import type { TocItem } from "@/lib/blogUtils";
 
@@ -9,7 +9,10 @@ type Props = {
   title?: string;
 };
 
-export default function AutoTOC({ containerSelector = "#post-content", title }: Props) {
+export default function AutoTOC({
+  containerSelector = "#post-content",
+  title,
+}: Props) {
   const [items, setItems] = useState<TocItem[]>([]);
 
   useEffect(() => {
@@ -20,7 +23,11 @@ export default function AutoTOC({ containerSelector = "#post-content", title }: 
     headings.forEach((h) => {
       const level = h.tagName === "H2" ? 2 : 3;
       if (!h.id) {
-        const id = h.textContent?.toLowerCase().replace(/[^a-z0-9\s-]/g, "").replace(/\s+/g, "-") || "section";
+        const id =
+          h.textContent
+            ?.toLowerCase()
+            .replace(/[^a-z0-9\s-]/g, "")
+            .replace(/\s+/g, "-") || "section";
         h.id = id;
       }
       parsed.push({ id: h.id, text: h.textContent || "", level });
