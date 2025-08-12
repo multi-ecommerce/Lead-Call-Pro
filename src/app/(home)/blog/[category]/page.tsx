@@ -43,6 +43,7 @@ export default async function CategoryPage({ params }: PageProps) {
       <MaxWidthWrapper className="py-20">
         <div className="flex flex-col lg:flex-row gap-8">
           <div className="flex-3/8">
+            {/* eslint-disable-next-line @typescript-eslint/no-unused-vars */}
             <BlogPosts posts={filtered.map(({ Content, ...rest }) => rest)} />
           </div>
           <div className="flex-1">
