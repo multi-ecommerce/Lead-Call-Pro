@@ -68,7 +68,7 @@ export default function BlogListClient({ posts }: Props) {
               <span className="font-semibold">{posts.length}</span> posts
               {searchTerm && (
                 <span>
-                  {" "}for "<span className="font-semibold">{searchTerm}</span>"
+                  {" "}for <span className="font-semibold">{searchTerm}</span>
                 </span>
               )}
               {selectedCategory !== "all" && (

@@ -28,6 +28,7 @@ export default function Blog() {
       <MaxWidthWrapper className="py-20">
         <div className="flex flex-col lg:flex-row gap-8">
           <div className="flex-1 lg:flex-[2]">
+          {/* eslint-disable-next-line @typescript-eslint/no-unused-vars */}
             <BlogListClient posts={blogPosts.map(({ Content, ...rest }) => rest)} />
           </div>
 
