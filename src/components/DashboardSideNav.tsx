@@ -10,6 +10,7 @@ import {
   User,
   Settings,
   PanelRightOpen,
+  Target,
 } from "lucide-react";
 
 interface DashboardSideNavProps {
@@ -21,6 +22,11 @@ const links = [
     name: "Dashboard",
     href: "/dashboard",
     icon: ChartColumn,
+  },
+  {
+    name: "Campaigns",
+    href: "/dashboard/campaigns",
+    icon: Target,
   },
   {
     name: "Calls",
@@ -38,7 +44,7 @@ const links = [
     icon: User,
   },
   {
-    name: "Compaign Settings",
+    name: "Campaign Settings",
     href: "/dashboard/compaign-settings",
     icon: Settings,
   },

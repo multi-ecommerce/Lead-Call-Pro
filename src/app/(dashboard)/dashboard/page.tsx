@@ -4,8 +4,9 @@ import { useAuth } from '@/contexts/AuthContext';
 import SubscriptionManager from '@/components/SubscriptionManager';
 import UsageTracker from '@/components/UsageTracker';
 import { Card, CardContent } from '@/components/ui/card';
-import { Building2, Target, Settings } from 'lucide-react';
+import { Building2, Target, Settings, BarChart3 } from 'lucide-react';
 import MaxWidthWrapper from '@/components/MaxWidthWrapper';
+import Link from 'next/link';
 
 export default function Dashboard() {
   const { user, loading } = useAuth();
@@ -55,41 +56,47 @@ export default function Dashboard() {
         <div className="mt-8">
           <h2 className="text-xl font-semibold mb-4">Quick Actions</h2>
           <div className="grid md:grid-cols-3 gap-4">
-            <Card className="cursor-pointer hover:shadow-md transition-shadow">
-              <CardContent className="p-6">
-                <div className="flex items-center gap-3">
-                  <Building2 className="w-8 h-8 text-blue-600" />
-                  <div>
-                    <h3 className="font-medium">Manage Businesses</h3>
-                    <p className="text-sm text-gray-600">Add and manage your business profiles</p>
+            <Link href="/dashboard/campaigns">
+              <Card className="cursor-pointer hover:shadow-md transition-shadow">
+                <CardContent className="p-6">
+                  <div className="flex items-center gap-3">
+                    <Target className="w-8 h-8 text-blue-600" />
+                    <div>
+                      <h3 className="font-medium">Manage Campaigns</h3>
+                      <p className="text-sm text-gray-600">Create and manage your marketing campaigns</p>
+                    </div>
                   </div>
-                </div>
-              </CardContent>
-            </Card>
+                </CardContent>
+              </Card>
+            </Link>
             
-            <Card className="cursor-pointer hover:shadow-md transition-shadow">
-              <CardContent className="p-6">
-                <div className="flex items-center gap-3">
-                  <Target className="w-8 h-8 text-green-600" />
-                  <div>
-                    <h3 className="font-medium">SEO Analytics</h3>
-                    <p className="text-sm text-gray-600">Track your business performance</p>
+            <Link href="/dashboard/business">
+              <Card className="cursor-pointer hover:shadow-md transition-shadow">
+                <CardContent className="p-6">
+                  <div className="flex items-center gap-3">
+                    <Building2 className="w-8 h-8 text-green-600" />
+                    <div>
+                      <h3 className="font-medium">Manage Businesses</h3>
+                      <p className="text-sm text-gray-600">Add and manage your business profiles</p>
+                    </div>
                   </div>
-                </div>
-              </CardContent>
-            </Card>
+                </CardContent>
+              </Card>
+            </Link>
             
-            <Card className="cursor-pointer hover:shadow-md transition-shadow">
-              <CardContent className="p-6">
-                <div className="flex items-center gap-3">
-                  <Settings className="w-8 h-8 text-purple-600" />
-                  <div>
-                    <h3 className="font-medium">Google Business</h3>
-                    <p className="text-sm text-gray-600">Connect and manage Google Business</p>
+            <Link href="/dashboard/reports">
+              <Card className="cursor-pointer hover:shadow-md transition-shadow">
+                <CardContent className="p-6">
+                  <div className="flex items-center gap-3">
+                    <BarChart3 className="w-8 h-8 text-purple-600" />
+                    <div>
+                      <h3 className="font-medium">View Reports</h3>
+                      <p className="text-sm text-gray-600">Track your campaign performance</p>
+                    </div>
                   </div>
-                </div>
-              </CardContent>
-            </Card>
+                </CardContent>
+              </Card>
+            </Link>
           </div>
         </div>
       </div>

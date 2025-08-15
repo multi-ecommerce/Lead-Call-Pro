@@ -11,11 +11,11 @@ export async function middleware(req: NextRequest) {
   } = await supabase.auth.getSession();
 
   // Protect dashboard routes
-  if (req.nextUrl.pathname.startsWith('/dashboard')) {
-    if (!session) {
-      return NextResponse.redirect(new URL('/sign-in', req.url));
-    }
-  }
+  // if (req.nextUrl.pathname.startsWith('/dashboard')) {
+  //   if (!session) {
+  //     return NextResponse.redirect(new URL('/sign-in', req.url));
+  //   }
+  // }
 
   // Redirect authenticated users away from auth pages
   if (session && (req.nextUrl.pathname.startsWith('/sign-in') || req.nextUrl.pathname.startsWith('/sign-up'))) {
