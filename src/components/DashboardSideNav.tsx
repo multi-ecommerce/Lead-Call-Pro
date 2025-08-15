@@ -57,7 +57,7 @@ export default function DashboardSideNav({
   return (
     <div>
       <div className="flex justify-between items-center px-3 h-12">
-        <p className="text-sm font-bold">LOGO</p>
+        <p className="text-sm font-bold">Lead Call Pro</p>
         <button
           onClick={closeSidebar}
           className="lg:hidden text-gray-600 hover:text-black cursor-pointer"

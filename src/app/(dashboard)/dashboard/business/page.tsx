@@ -5,6 +5,7 @@ import { useAuth } from '@/contexts/AuthContext';
 import { BusinessProfile } from '@/lib/types/business';
 import BusinessProfileForm from '@/components/BusinessProfileForm';
 import SEOAnalytics from '@/components/SEOAnalytics';
+import GoogleBusinessSubmission from '@/components/GoogleBusinessSubmission';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
@@ -344,26 +345,7 @@ export default function BusinessPage() {
                       </CardTitle>
                     </CardHeader>
                     <CardContent>
-                      <div className="space-y-4">
-                        <div>
-                          <h4 className="font-medium mb-2">Google Business Integration</h4>
-                          <p className="text-sm text-gray-600 mb-4">
-                            Connect your Google Business account for automatic updates
-                          </p>
-                          <Button variant="outline">
-                            Connect Google Business
-                          </Button>
-                        </div>
-                        <div>
-                          <h4 className="font-medium mb-2">Automatic Updates</h4>
-                          <p className="text-sm text-gray-600 mb-4">
-                            Schedule automatic updates to your Google Business profile
-                          </p>
-                          <Button variant="outline">
-                            Configure Auto-Updates
-                          </Button>
-                        </div>
-                      </div>
+                      <GoogleBusinessSubmission business={selectedBusiness} />
                     </CardContent>
                   </Card>
                 </TabsContent>
